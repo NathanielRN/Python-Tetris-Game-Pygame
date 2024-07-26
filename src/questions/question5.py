@@ -4,23 +4,29 @@ import pygame
 
 from game_state import GameState
 
-# If blocks with finally getting to move the pieces.
+# If blocks to finally start moving pieces!!!
 
 def solution5(gs: GameState, e: Event, rotate_sound: Sound) -> None:
     if gs.game_over:
-        gs.reset()
+        # --> Reset the game state if the game is over
+        pass
     else:
         if e.key == pygame.K_LEFT:
-            gs.move_left()
+            # --> Move the piece left
+            pass
         elif e.key == pygame.K_RIGHT:
-            gs.move_right()
+            # --> Move the piece right
+            pass
         elif e.key == pygame.K_DOWN:
-            gs.move_down()
+            # --> Move the piece down
+            pass
         elif e.key == pygame.K_UP:
-            while gs.move_down():
-                pass
+            # --> Continuously move the piece down
+            pass
         elif e.key == pygame.K_r:
-            gs.rotate()
-            rotate_sound.play()
+            # --> Rotate the piece
+            # --> Play the rotation sound
+            pass
         elif e.key == pygame.K_h:
-            gs.hold()
+            # --> Hold the piece
+            pass

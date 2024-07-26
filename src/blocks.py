@@ -15,10 +15,10 @@ class LBlock(Block):
     def __init__(self):
         super().__init__(
             [
-                Tile(0, 0),
-                Tile(0, 1),
-                Tile(0, 2),
-                Tile(1, 2),
+                Tile(0, 0),  # --> Top left tile
+                Tile(0, 1),  # --> Top middle tile
+                Tile(0, 2),  # --> Top right tile
+                Tile(1, 2),  # --> Bottom right tile (the "leg" of the L)
             ],
             Color.WHITE,
         )

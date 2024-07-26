@@ -3,6 +3,36 @@ from tile import Tile
 
 # Super complex rotation logic.
 
+"""
+This question is hard, so we give you the answer. Ask a teacher if you have more
+questions!
+
+This is how we COUNTER-CLOCKWISE rotate a 2D array.
+
+Step 1: The original matrix:
+
+*       
+* *     
+* * *   
+* * * * 
+* * * * *
+
+Step 2: Take the transpose (row/column are FLIPPED)
+
+* * * * *
+  * * * *
+    * * *
+      * *
+        *
+
+Step 3: Flip the image along the vertical axis:
+
+        *       
+      * *     
+    * * *   
+  * * * * 
+* * * * *
+"""
 
 def solution11(input_tiles: List[Tile], max_height: int):
     min_row = min(iter(tile.row for tile in input_tiles))
