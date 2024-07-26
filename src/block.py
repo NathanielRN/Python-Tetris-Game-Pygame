@@ -1,4 +1,5 @@
 from typing import List
+from questions.question11 import solution11
 from src.tile import Tile
 from src.color import Color
 
@@ -18,21 +19,9 @@ class Block:
         return [Tile(t.row + row_offset, t.column + col_offset) for t in self.tiles]
 
     def get_tiles_from_rotation(self):
-        min_row = min(iter(tile.row for tile in self.tiles))  # enowell to solve later
-        min_col = min(iter(tile.column for tile in self.tiles))
-        normalized_tiles = [
-            Tile(t.row - min_row, t.column - min_col) for t in self.tiles
-        ]
-        transposed_tiles = [Tile(t.column, t.row) for t in normalized_tiles]
-        rotated_tiles = [
-            Tile(self.max_height - t.row, t.column) for t in transposed_tiles
-        ]
-        denormalized_tiles = [
-            Tile(t.row + min_row, t.column + min_col) for t in rotated_tiles
-        ]
+        rotated_tiles = solution11(self.tiles, self.max_height)
 
-        return denormalized_tiles
-    
+        return rotated_tiles
+
     def reset(self):
         self.tiles = self.original_tiles
-

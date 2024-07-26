@@ -1,22 +1,25 @@
 import pygame, sys
 from pygame.event import Event
 from game_state import GameState
+from questions.question1 import solution1
+from questions.question5 import solution5
+from questions.question8 import solution8
 from src.drawer import Drawer
 from src.grid import Grid
 
 UPDATE_FPS = 60
-AUTO_MOVE_FPS = 5
 
 pygame.init()
 pygame.display.set_caption("Python Tetris")
 
 
 def start() -> None:
+    solution1()
 
     clock = pygame.time.Clock()
 
     AUTO_MOVE_EVENT = pygame.USEREVENT
-    auto_move_delay_ms = int(1 / AUTO_MOVE_FPS * 1000)  # 200 ms
+    auto_move_delay_ms = solution8()
     pygame.time.set_timer(AUTO_MOVE_EVENT, auto_move_delay_ms)
 
     drawer = Drawer()
@@ -36,23 +39,7 @@ def start() -> None:
             sys.exit()
 
         if e.type == pygame.KEYDOWN:
-            if gs.game_over:
-                gs.reset()
-            else:
-                if e.key == pygame.K_LEFT:
-                    gs.move_left()
-                elif e.key == pygame.K_RIGHT:
-                    gs.move_right()
-                elif e.key == pygame.K_DOWN:
-                    gs.move_down()
-                elif e.key == pygame.K_UP:
-                    while gs.move_down():
-                        pass
-                elif e.key == pygame.K_r:
-                    gs.rotate()
-                    rotate_sound.play()
-                elif e.key == pygame.K_h:
-                    gs.hold()
+            solution5(gs, e, rotate_sound)
             return
 
         if not gs.game_over and event.type == AUTO_MOVE_EVENT:

@@ -1,3 +1,4 @@
+from questions.question7 import solution7
 from src.color import Color
 
 NUM_ROWS = 20
@@ -11,7 +12,7 @@ class Grid:
 
     @staticmethod
     def is_out_of_bounds(row: int, column: int):
-        return row < 0 or row >= NUM_ROWS or column < 0 or column >= NUM_COLUMNS
+        return solution7(row, column, NUM_ROWS, NUM_COLUMNS)
 
     def has_block(self, row: int, column: int) -> None:
         return self.grid[row][column] != EMPTY_CELL

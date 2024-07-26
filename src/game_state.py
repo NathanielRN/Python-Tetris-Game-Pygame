@@ -5,6 +5,10 @@ from blocks import *
 import random
 import pygame
 
+from questions.question10 import solution10
+from questions.question4 import solution4
+from questions.question9 import solution9
+
 
 NUM_OF_NEXT_BLOCKS = 3
 BLOCKS = [
@@ -38,21 +42,13 @@ class GameState:
         self.held_block = None
 
     def update_score_for_moving_down(self) -> None:
-        self.score += 100
+        self.score += solution10()
 
     def update_score_for_lines_cleared(self, lines_cleared: int) -> None:
         self.score += lines_cleared * 100
 
     def is_valid_tiles(self, tiles: List[Tile]) -> bool:
-        for tile in tiles:
-            if Grid.is_out_of_bounds(tile.row, tile.column):
-                return False
-
-        for tile in tiles:
-            if self.grid.has_block(tile.row, tile.column):
-                return False
-
-        return True
+        return solution4(tiles, self.grid)
 
     def move_current_block(self, row_offset: int, col_offset: int) -> bool:
         ncp = self.current_block.get_tiles_from_offset(row_offset, col_offset)
@@ -105,7 +101,7 @@ class GameState:
         self.current_block.move_to(self.current_block.get_tiles_from_offset(0, 4))
 
     def lock_current_block(self) -> None:
-        next_block = self.next_blocks.pop(0)
+        next_block = solution9(self.next_blocks)
         for tile in self.current_block.tiles:
             row, column = tile.row, tile.column
             self.grid.grid[row][column] = self.current_block.color

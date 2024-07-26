@@ -1,6 +1,8 @@
 import pygame
 
-from grid import NUM_COLUMNS, NUM_ROWS, Grid
+from grid import Grid
+from questions.question2 import solution2
+from questions.question3 import solution3
 from src.block import Block
 from src.color import Color
 from src.game_state import NUM_OF_NEXT_BLOCKS, GameState
@@ -101,13 +103,7 @@ class Drawer(object):
     def draw_block(self, block: Block, x_offset: int, y_offset: int) -> None:
         for tile in block.tiles:
             x, y = tile.column, tile.row
-            tile_rect = pygame.Rect(
-                x_offset + x * CELL_SIZE,
-                y_offset + y * CELL_SIZE,
-                CELL_SIZE * GRID_CELL_MULTIPLIER,
-                CELL_SIZE * GRID_CELL_MULTIPLIER,
-            )
-            pygame.draw.rect(self.screen, block.color.value, tile_rect)
+            solution3(self.screen, block, x_offset, y_offset, x, y, CELL_SIZE, GRID_CELL_MULTIPLIER)
 
     def draw_gs(self, gs: GameState) -> None:
         score_value_surface = self.game_font.render(
@@ -137,13 +133,4 @@ class Drawer(object):
             )
 
     def draw_grid(self, grid: Grid) -> None:
-        for row_i in range(NUM_ROWS):
-            for col_i in range(NUM_COLUMNS):
-                cell_color: Color = grid.grid[row_i][col_i]
-                cell_rect = pygame.Rect(
-                    col_i * CELL_SIZE + GRID_X_START,
-                    row_i * CELL_SIZE + GRID_Y_START,
-                    CELL_SIZE - 1,
-                    CELL_SIZE - 1,
-                )
-                pygame.draw.rect(self.screen, cell_color.value, cell_rect)
+        solution2(self.screen, grid, CELL_SIZE, GRID_X_START, GRID_Y_START)

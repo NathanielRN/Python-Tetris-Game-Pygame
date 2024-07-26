@@ -1,4 +1,12 @@
 from block import Block
+from questions.question6 import (
+    solution_iblock,
+    solution_jblock,
+    solution_oblock,
+    solution_sblock,
+    solution_tblock,
+    solution_zblock,
+)
 from src.tile import Tile
 from src.color import Color
 
@@ -19,12 +27,7 @@ class LBlock(Block):
 class JBlock(Block):
     def __init__(self):
         super().__init__(
-            [
-                Tile(0, 1),
-                Tile(1, 1),
-                Tile(2, 1),
-                Tile(2, 0),
-            ],
+            solution_jblock(),
             Color.ORANGE,
         )
 
@@ -32,12 +35,7 @@ class JBlock(Block):
 class IBlock(Block):
     def __init__(self):
         super().__init__(
-            [
-                Tile(0, 0),
-                Tile(0, 1),
-                Tile(0, 2),
-                Tile(0, 3),
-            ],
+            solution_iblock(),
             Color.CYAN,
         )
 
@@ -45,12 +43,7 @@ class IBlock(Block):
 class OBlock(Block):
     def __init__(self):
         super().__init__(
-            [
-                Tile(0, 0),
-                Tile(0, 1),
-                Tile(1, 0),
-                Tile(1, 1),
-            ],
+            solution_oblock(),
             Color.YELLOW,
         )
 
@@ -58,12 +51,7 @@ class OBlock(Block):
 class SBlock(Block):
     def __init__(self):
         super().__init__(
-            [
-                Tile(1, 0),
-                Tile(1, 1),
-                Tile(0, 1),
-                Tile(0, 2),
-            ],
+            solution_sblock(),
             Color.RED,
         )
 
@@ -71,12 +59,7 @@ class SBlock(Block):
 class TBlock(Block):
     def __init__(self):
         super().__init__(
-            [
-                Tile(1, 0),
-                Tile(1, 1),
-                Tile(0, 1),
-                Tile(0, 2),
-            ],
+            solution_tblock(),
             Color.PURPLE,
         )
 
@@ -84,11 +67,6 @@ class TBlock(Block):
 class ZBlock(Block):
     def __init__(self):
         super().__init__(
-            [
-                Tile(0, 0),
-                Tile(0, 1),
-                Tile(1, 1),
-                Tile(1, 2),
-            ],
+            solution_zblock(),
             Color.GREEN,
         )
