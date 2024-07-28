@@ -1,32 +1,28 @@
-from pygame.event import Event
-from pygame.mixer import Sound
-import pygame
+"""
+Objective: Make the blocks stop leaving the bounds of the grid.
 
-from game_state import GameState
+A grid has a restricted number of rows and columns where the blocks should not
+pas.
 
-# If blocks to finally start moving pieces!!!
+              column=0                column=num_columns
+                 ↓                           ↓
+       row=0 → [. . . . . . . . . . . . . . .]
+               [. . . . . . . . . . . . . . .]
+               [. . . . . . . . . . . . . . .]
+               [. . . . . . . . . . . . . . .]
+               [. . . . . . . . . . . . . . .]
+               [. . . . . . . . . . . . . . .]
+               [. . . . . . . . . . . . . . .]
+               [. . . . . . . . . . . . . . .]
+               [. . . . . . . . . . . . . . .]
+               [. . . . . . . . . . . . . . .]
+               [. . . . . . . . . . . . . . .]
+row=num_rows → [. . . . . . . . . . . . . . .]
 
-def solution5(gs: GameState, e: Event, rotate_sound: Sound) -> None:
-    if gs.game_over:
-        # --> Reset the game state if the game is over
-        pass
-    else:
-        if e.key == pygame.K_LEFT:
-            # --> Move the piece left
-            pass
-        elif e.key == pygame.K_RIGHT:
-            # --> Move the piece right
-            pass
-        elif e.key == pygame.K_DOWN:
-            # --> Move the piece down
-            pass
-        elif e.key == pygame.K_UP:
-            # --> Continuously move the piece down
-            pass
-        elif e.key == pygame.K_r:
-            # --> Rotate the piece
-            # --> Play the rotation sound
-            pass
-        elif e.key == pygame.K_h:
-            # --> Hold the piece
-            pass
+If the `row` or `column` is outside of the bounds, you should return `True`.
+"""
+
+
+def solution5(row: int, column: int, num_rows: int, num_columns: int) -> bool:
+    is_out_of_bounds = row >= num_rows or row < 0 or column < 0 or column >= num_columns
+    return is_out_of_bounds

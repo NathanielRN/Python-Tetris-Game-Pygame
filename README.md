@@ -1,22 +1,54 @@
-# Python Tetris Game using pygame or pygame-ce
+# Python Tetris Game with pygame
 
-🕹️🐍🎮 This GitHub repository is home to the full source code for a Tetris game built with the Python programming language and pygame library. 💻🎨🎧 The game uses various pygame functions for graphics, input handling, and audio and can be played on Windows, macOS, and Linux computers. 🔍📖 The code is well-structured and easy to read, making it a valuable resource for aspiring game developers looking to learn about pygame game programming.
+Originally inspired by [GitHub Project - educ8s/Python-Tetris-Game-Pygame](https://github.com/educ8s/Python-Tetris-Game-Pygame).
 
-If you want to learn how to build your own Tetris game with pygame, check out the accompanying <a href="https://youtu.be/nF_crEtmpBo">Video Tutorial on YouTube.</a> 🎬👨‍💻 The tutorial guides you through every line of code, explaining the logic behind it and demonstrating how it affects the game. You'll discover how to set up the game window, create the Grid and block classes, add collision detection, and implement sound effects. By the end of the tutorial, you'll have a fully functional Tetris game that you can play and modify however you like. ☕ So, grab a cup of coffee and let's dive into the exciting world of game development with pygame! 🚀
+![Tetris Demo GIF](./tetris_demo.gif)
 
-# Video Tutorial
+This implementation was re-written with the intent of using it for teaching beginners how to code. Tested on Mac and Windows.
 
-<p align="center">
-  <img src="preview.jpg" alt="" width="960">
-</p>
+## Installing + Running the game
 
-<p align="center">
-🎥 <a href="https://youtu.be/nF_crEtmpBo">Video Tutorial on YouTube</a>
-</p>
+Go to [the official Python Website](https://www.python.org/downloads/) and download Python for your machine.
 
-<br>
-<br>
-<p align="center">
-| 📺 <a href="https://www.youtube.com/channel/UC3ivOTE5EgpmF2DHLBmWIWg">My YouTube Channel</a>
-| 🌍 <a href="http://www.educ8s.tv">My Website</a> | <br>
-</p>
+Next, install the `pygame` module from the terminal:
+
+```bash
+python -m pip install pygame
+```
+
+### Run with VSCode
+
+We recommend you use VSCode to run the game. Even if your computer is old, you should be able to download an older version of VSCode.
+
+Install the [Python Debugging Extension from VSCode](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy). Finally, go to the `Run and Debug` panel on the left, and click the `Play Tetris` green play button to launch the game.
+
+### Run with the terminal
+
+If you cannot run the Python Debugger Extension on VSCode (because your computer is too old), run the game from the terminal using this command:
+
+```bash
+PYTHONPATH=src python main.py
+```
+
+### Troubleshooting
+
+On Mac, you **do not** need to install xcode tools to install anything. If you know you installed Python but `python` on the terminal doesn't work, you might need to add it to your path with this terminal command (it must end with `bin`):
+
+```bash
+echo 'export PYTHON=/path/to/install/location/bin' >> ~/.bashrc
+```
+
+On Windows, the easiest way to download Python is by **first** downloading the Python Debugger Extension, and using the VSCode welcome steps to install Python from the windows store.
+
+On VSCode, if `Python: Select Interpreter` does not find your installed Python version, try running `Python: Clear Cache And Reload Window`.
+
+## Playing the game
+
+* `↓ → ←` - move the block
+* `↑` - hard drop
+* `r` - rotate
+* `h` - hold the block
+
+## Solutions
+
+Solutions to the questions are available on the [`coding-solutions` branch of this repo](https://github.com/NathanielRN/Python-Tetris-Game-Pygame/tree/coding-solutions).

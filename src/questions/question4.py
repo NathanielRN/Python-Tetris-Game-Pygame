@@ -1,17 +1,21 @@
-from typing import List
-from grid import Grid
-from tile import Tile
+from pygame.event import Event
+import pygame
 
-# Check if the proposed new block tiles positions are valid.
+from game_state import GameState
 
 
-def solution4(tiles: List[Tile], grid: Grid) -> bool:
-    for tile in tiles:
-        if True: # <-- Use Grid static method to determine if tile is out of bounds
-            return False
+"""
+Objective: Be able to use arrow keys to move blocks.
+"""
 
-    for tile in tiles:
-        if True: # <-- Use grid instance method to determine if tile is out of bounds
-            return False
 
-    return True
+def solution4(gs: GameState, e: Event) -> None:
+    if e.key == pygame.K_LEFT:
+        gs.move_left()
+    elif e.key == pygame.K_RIGHT:
+        gs.move_right()
+    elif e.key == pygame.K_DOWN:
+        _ = gs.move_down()
+    elif e.key == pygame.K_UP:
+        while gs.move_down():
+            pass

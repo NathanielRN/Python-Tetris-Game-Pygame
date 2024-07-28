@@ -1,5 +1,5 @@
 from block import Block
-from questions.question6 import (
+from questions.question7 import (
     solution_iblock,
     solution_jblock,
     solution_oblock,
@@ -10,24 +10,26 @@ from questions.question6 import (
 from src.tile import Tile
 from src.color import Color
 
-
 class LBlock(Block):
     def __init__(self):
         super().__init__(
             [
-                Tile(0, 0),  # --> Top left tile
-                Tile(0, 1),  # --> Top middle tile
-                Tile(0, 2),  # --> Top right tile
-                Tile(1, 2),  # --> Bottom right tile (the "leg" of the L)
+                Tile(*coord)
+                for coord in [
+                    (0, 0),
+                    (0, 1),
+                    (0, 2),
+                    (1, 2),
+                ]
             ],
-            Color.WHITE,
+            Color.LIGHT_BLUE,
         )
 
 
 class JBlock(Block):
     def __init__(self):
         super().__init__(
-            solution_jblock(),
+            [Tile(*coord) for coord in solution_jblock()],
             Color.ORANGE,
         )
 
@@ -35,7 +37,7 @@ class JBlock(Block):
 class IBlock(Block):
     def __init__(self):
         super().__init__(
-            solution_iblock(),
+            [Tile(*coord) for coord in solution_iblock()],
             Color.CYAN,
         )
 
@@ -43,7 +45,7 @@ class IBlock(Block):
 class OBlock(Block):
     def __init__(self):
         super().__init__(
-            solution_oblock(),
+            [Tile(*coord) for coord in solution_oblock()],
             Color.YELLOW,
         )
 
@@ -51,7 +53,7 @@ class OBlock(Block):
 class SBlock(Block):
     def __init__(self):
         super().__init__(
-            solution_sblock(),
+            [Tile(*coord) for coord in solution_sblock()],
             Color.RED,
         )
 
@@ -59,7 +61,7 @@ class SBlock(Block):
 class TBlock(Block):
     def __init__(self):
         super().__init__(
-            solution_tblock(),
+            [Tile(*coord) for coord in solution_tblock()],
             Color.PURPLE,
         )
 
@@ -67,6 +69,6 @@ class TBlock(Block):
 class ZBlock(Block):
     def __init__(self):
         super().__init__(
-            solution_zblock(),
+            [Tile(*coord) for coord in solution_zblock()],
             Color.GREEN,
         )

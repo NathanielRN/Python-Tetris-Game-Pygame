@@ -1,13 +1,12 @@
 import copy
-from typing import List
+from typing import List, Optional
 from grid import Grid
 from blocks import *
 import random
 import pygame
 
-from questions.question10 import solution10
-from questions.question4 import solution4
 from questions.question9 import solution9
+from questions.question10 import solution10
 
 
 NUM_OF_NEXT_BLOCKS = 3
@@ -39,16 +38,24 @@ class GameState:
         self.game_over = False
         self.next_blocks = [get_random_block() for _ in range(NUM_OF_NEXT_BLOCKS)]
         self.score = 0
-        self.held_block = None
+        self.held_block: Optional[Block] = None
 
     def update_score_for_moving_down(self) -> None:
-        self.score += solution10()
+        self.score += solution9()
 
     def update_score_for_lines_cleared(self, lines_cleared: int) -> None:
-        self.score += lines_cleared * 100
+        self.score += lines_cleared * solution9()
 
     def is_valid_tiles(self, tiles: List[Tile]) -> bool:
-        return solution4(tiles, self.grid)
+        for tile in tiles:
+            if Grid.is_out_of_bounds(tile.row, tile.column):
+                return False
+
+        for tile in tiles:
+            if self.grid.has_block(tile.row, tile.column):
+                return False
+
+        return True
 
     def move_current_block(self, row_offset: int, col_offset: int) -> bool:
         ncp = self.current_block.get_tiles_from_offset(row_offset, col_offset)
@@ -81,8 +88,8 @@ class GameState:
 
     def hold(self) -> None:
         tmp = self.held_block
+        self.current_block.reset()
         self.held_block = self.current_block
-        self.held_block.reset()
         if tmp:
             self.swap_current_block(tmp)
         else:
@@ -101,10 +108,10 @@ class GameState:
         self.current_block.move_to(self.current_block.get_tiles_from_offset(0, 4))
 
     def lock_current_block(self) -> None:
-        next_block = solution9(self.next_blocks)
+        next_block = solution10(self.next_blocks)
         for tile in self.current_block.tiles:
             row, column = tile.row, tile.column
-            self.grid.grid[row][column] = self.current_block.color
+            self.grid.cells[row][column] = self.current_block.color
         self.swap_current_block(next_block)
         if self.game_over:
             return
