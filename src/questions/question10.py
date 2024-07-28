@@ -1,5 +1,6 @@
 from typing import List
 
+from blocks import LBlock
 from tile import Tile
 
 """
@@ -19,4 +20,4 @@ a.pop()
 
 
 def solution10(next_blocks: List[Tile]):
-    return next_blocks.pop(0)  # Replace by getting blocks from next_blocks
+    return LBlock()  # <- Change this.

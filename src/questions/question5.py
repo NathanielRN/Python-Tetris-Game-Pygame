@@ -24,5 +24,5 @@ If the `row` or `column` is outside of the bounds, you should return `True`.
 
 
 def solution5(row: int, column: int, num_rows: int, num_columns: int) -> bool:
-    is_out_of_bounds = row >= num_rows or row < 0 or column < 0 or column >= num_columns
+    is_out_of_bounds = row >= num_rows  # <- Change this.
     return is_out_of_bounds

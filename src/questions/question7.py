@@ -27,7 +27,7 @@ def solution_jblock() -> Coordinates:
         2    (0,2) (1,2)
         3
     """
-    return [(0, 0), (1, 0), (2, 0), (2, 1)]
+    return [(0, 0), (0, 0), (0, 0), (0, 1)]  # <- Change this.
 
 
 def solution_iblock() -> Coordinates:
@@ -41,7 +41,7 @@ def solution_iblock() -> Coordinates:
         2    (0,2)
         3    (0,3)
     """
-    return [(0, 0), (0, 1), (0, 2), (0, 3)]
+    return [(0, 0), (0, 0), (0, 0), (0, 1)]  # <- Change this.
 
 
 def solution_oblock() -> Coordinates:
@@ -55,7 +55,7 @@ def solution_oblock() -> Coordinates:
         2
         3
     """
-    return [(0, 0), (1, 0), (0, 1), (1, 1)]
+    return [(0, 0), (0, 0), (0, 0), (0, 1)]  # <- Change this.
 
 
 def solution_sblock() -> Coordinates:
@@ -68,7 +68,7 @@ def solution_sblock() -> Coordinates:
         2
         3
     """
-    return [(0, 1), (1, 1), (1, 0), (2, 0)]
+    return [(0, 0), (0, 0), (0, 0), (0, 1)]  # <- Change this.
 
 
 def solution_tblock() -> Coordinates:
@@ -81,7 +81,7 @@ def solution_tblock() -> Coordinates:
         2
         3
     """
-    return [(1, 0), (0, 1), (1, 1), (2, 1)]
+    return [(0, 0), (0, 0), (0, 0), (0, 1)]  # <- Change this.
 
 
 def solution_zblock() -> Coordinates:
@@ -94,4 +94,4 @@ def solution_zblock() -> Coordinates:
         2
         3
     """
-    return [(0, 0), (1, 0), (1, 1), (2, 1)]
+    return [(0, 0), (0, 0), (0, 0), (0, 1)]  # <- Change this.

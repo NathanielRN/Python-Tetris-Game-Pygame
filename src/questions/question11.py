@@ -34,4 +34,4 @@ Step 3: Flip the image along the vertical axis:
 
 
 def solution11(input_tiles: List[Tile]) -> List[Tile]:
-    return [Tile(t.column, t.row) for t in input_tiles]
+    return input_tiles  # <- Change this.
